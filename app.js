@@ -5,7 +5,7 @@ async function refreshAccess(){
  if(!db){showAuth('Falha ao carregar a autenticação. Recarregue a página.');return;}
  const {data:{user},error}=await db.auth.getUser();
  activeUser=error?null:user;hasLifetimeLicense=false;
- if(!activeUser){showAuth('Entre ou crie sua conta para consultar o acesso.');document.querySelector('#licenseStatus').textContent='Acesso às bancadas bloqueado até a confirmação do pagamento.';return;}
+ if(!activeUser){document.querySelector('#licenseStatus').textContent='Acesso às bancadas bloqueado até a confirmação da conta e a ativação de uma licença.';return;}
  const result=await db.from('lifetime_licenses').select('granted_at').eq('user_id',activeUser.id).maybeSingle();
  if(result.error){showAuth('Não foi possível verificar a licença: '+result.error.message);return;}
  hasLifetimeLicense=!!result.data;
@@ -19,30 +19,36 @@ async function authenticate(event){
  await refreshAccess();
 }
 async function register(){
+ if(authRequestRunning)return showAuth('Aguarde a resposta da solicitação anterior.');
+ if(Date.now()-lastSignupAt<60000)return showAuth('Aguarde um minuto para evitar bloqueio por tentativas repetidas.');
  if(!db)return showAuth('Serviço de cadastro indisponível.');
  const email=document.querySelector('#email').value.trim();
  const password=document.querySelector('#password').value;
  if(!email||password.length<6)return showAuth('Informe e-mail e senha de pelo menos 6 caracteres.');
+ lastSignupAt=Date.now();authRequestRunning=true;
  showAuth('Solicitando cadastro...');
  try{
   const {error}=await db.auth.signUp({email,password,options:{emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}});
   if(error)return showAuth(error.status===429?'Muitas tentativas. Aguarde um minuto e tente novamente.':'Cadastro não concluído: '+error.message);
   showAuth('Verifique o e-mail mais recente para confirmar o cadastro. Caso já tenha conta, use Reenviar confirmação.');
  }catch(e){showAuth('Falha na conexão com o serviço de cadastro. Tente novamente.')}
+ finally{authRequestRunning=false}
 }
-let lastResendAt=0;
+let lastResendAt=0, lastSignupAt=0, authRequestRunning=false;
 async function resendConfirmation(){
+ if(authRequestRunning)return showAuth('Aguarde a resposta da solicitação anterior.');
  if(!db)return showAuth('Serviço de cadastro indisponível.');
  const email=document.querySelector('#email').value.trim();
  if(!email)return showAuth('Digite seu e-mail para reenviar a confirmação.');
  if(Date.now()-lastResendAt<60000)return showAuth('Aguarde um minuto antes de solicitar outro e-mail.');
+ lastResendAt=Date.now();authRequestRunning=true;
  showAuth('Solicitando novo e-mail...');
  try{
   const {error}=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}});
   if(error)return showAuth(error.status===429?'Limite temporário de envios. Aguarde alguns minutos.':'Não foi possível reenviar: '+error.message);
-  lastResendAt=Date.now();
   showAuth('Novo e-mail solicitado! Abra a mensagem mais recente do Supabase Auth e confirme.');
  }catch(e){showAuth('Falha de conexão. Tente novamente mais tarde.')}
+ finally{authRequestRunning=false}
 }
 async function logout(){if(db)await db.auth.signOut();activeUser=null;hasLifetimeLicense=false;voltarSeAberto();await refreshAccess()}
 function voltarSeAberto(){document.querySelector('#lab').classList.add('hidden');document.querySelector('#factory').classList.add('hidden');document.querySelector('.hero').classList.remove('hidden')}
