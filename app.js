@@ -19,12 +19,30 @@ async function authenticate(event){
  await refreshAccess();
 }
 async function register(){
- if(!db)return showAuth('Serviço de login indisponível.');
- const email=document.querySelector('#email').value.trim(),password=document.querySelector('#password').value;
+ if(!db)return showAuth('Serviço de cadastro indisponível.');
+ const email=document.querySelector('#email').value.trim();
+ const password=document.querySelector('#password').value;
  if(!email||password.length<6)return showAuth('Informe e-mail e senha de pelo menos 6 caracteres.');
- const {error}=await db.auth.signUp({email,password});
- showAuth(error?'Cadastro não concluído: '+error.message:'Cadastro enviado. Confirme seu e-mail, se solicitado, e entre na conta.');
- await refreshAccess();
+ showAuth('Solicitando cadastro...');
+ try{
+  const {error}=await db.auth.signUp({email,password,options:{emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}});
+  if(error)return showAuth(error.status===429?'Muitas tentativas. Aguarde um minuto e tente novamente.':'Cadastro não concluído: '+error.message);
+  showAuth('Verifique o e-mail mais recente para confirmar o cadastro. Caso já tenha conta, use Reenviar confirmação.');
+ }catch(e){showAuth('Falha na conexão com o serviço de cadastro. Tente novamente.')}
+}
+let lastResendAt=0;
+async function resendConfirmation(){
+ if(!db)return showAuth('Serviço de cadastro indisponível.');
+ const email=document.querySelector('#email').value.trim();
+ if(!email)return showAuth('Digite seu e-mail para reenviar a confirmação.');
+ if(Date.now()-lastResendAt<60000)return showAuth('Aguarde um minuto antes de solicitar outro e-mail.');
+ showAuth('Solicitando novo e-mail...');
+ try{
+  const {error}=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}});
+  if(error)return showAuth(error.status===429?'Limite temporário de envios. Aguarde alguns minutos.':'Não foi possível reenviar: '+error.message);
+  lastResendAt=Date.now();
+  showAuth('Novo e-mail solicitado! Abra a mensagem mais recente do Supabase Auth e confirme.');
+ }catch(e){showAuth('Falha de conexão. Tente novamente mais tarde.')}
 }
 async function logout(){if(db)await db.auth.signOut();activeUser=null;hasLifetimeLicense=false;voltarSeAberto();await refreshAccess()}
 function voltarSeAberto(){document.querySelector('#lab').classList.add('hidden');document.querySelector('#factory').classList.add('hidden');document.querySelector('.hero').classList.remove('hidden')}
