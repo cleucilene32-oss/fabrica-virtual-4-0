@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fábrica Virtual 4.0</title><link rel="stylesheet" href="styles.css"></head>
+<body><header><b>FÁBRICA VIRTUAL 4.0</b><span>Laboratório Industrial Interativo</span></header>
+<main><section class="hero"><p class="tag">TREINAMENTO • AUTOMAÇÃO • INDÚSTRIA 4.0</p><h1>Aprenda dentro de uma fábrica virtual.</h1><p>Treinamentos interativos com CLPs, inversores, sensores, IHM, esteiras e prensas.</p><button onclick="entrar()">Entrar na fábrica</button></section>
+<section id="factory" class="hidden"><h2>Chão de fábrica</h2><div class="flow">Sensor → CLP → Inversor → Motor → Esteira → Prensa</div><div class="grid">
+<article class="active"><h3>WEG CFW11</h3><p>Treinamento • Desafio • Bancada livre</p><button onclick="openLab('CFW11')">Abrir estação</button></article>
+<article><h3>WEG CFW500</h3><p>Estação preparada</p></article><article><h3>Siemens S7-1200</h3><p>Estação preparada</p></article>
+<article><h3>CLP Delta</h3><p>Estação preparada</p></article><article><h3>CLP Mitsubishi</h3><p>Estação preparada</p></article>
+<article><h3>Esteira + Prensa</h3><p>Célula industrial integrada</p></article></div></section>
+<section id="lab" class="hidden"><button class="back" onclick="voltar()">← Fábrica</button><h2 id="labTitle">Bancada CFW11</h2>
+<div class="panel"><div><h3>Bornes e cabos</h3><p>Clique para conectar/retirar.</p><button class="terminal" onclick="wire(this)">24V → DI1 START</button><button class="terminal" onclick="wire(this)">COM → DI2 STOP</button><button class="terminal" onclick="wire(this)">AO → Referência</button></div>
+<div><h3>Operação</h3><div id="status">PARADO • 0 rpm</div><button onclick="gira()">GIRA</button><button onclick="para()">PARA</button><input id="rpm" type="range" min="0" max="1800" value="900" oninput="updateRpm()"><p>Referência: <span id="rpmv">900</span> rpm</p></div>
+<div><h3>Treinamento</h3><p>Monte a ligação, ajuste a referência e coloque o acionamento em operação.</p><p id="score">Progresso: 0%</p></div></div></section></main>
+<footer>Fábrica Virtual 4.0 • Plataforma de treinamento prático</footer><script src="app.js"></script></body></html>
