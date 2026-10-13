@@ -1,16 +1,21 @@
 const db = window.supabase?.createClient('https://xilykohtdxtczrdnoujx.supabase.co','sb_publishable_b1fT8Gm9lOxcu3fglJ7V-A_OitqVSO7');
-let activeUser=null,hasLifetimeLicense=false;
+let activeUser=null,hasLifetimeLicense=false,isAdmin=false;
+function updateFactoryButton(){const button=document.querySelector('#openFactory');if(!button)return;button.classList.toggle('hidden',!hasLifetimeLicense);button.textContent=isAdmin?'Abrir laboratório — Administrador':'Abrir minhas bancadas';}
 const showAuth=(message)=>document.querySelector('#authStatus').textContent=message;
 async function refreshAccess(){
  if(!db){showAuth('Falha ao carregar a autenticação. Recarregue a página.');return;}
  const {data:{user},error}=await db.auth.getUser();
- activeUser=error?null:user;hasLifetimeLicense=false;
+ activeUser=error?null:user;hasLifetimeLicense=false;isAdmin=false;updateFactoryButton();
  if(!activeUser){document.querySelector('#licenseStatus').textContent='Acesso às bancadas bloqueado até a confirmação da conta e a ativação de uma licença.';return;}
+ const roleResult=await db.from('user_roles').select('role').eq('user_id',activeUser.id).maybeSingle();
+ if(roleResult.error){showAuth('Não foi possível verificar as permissões: '+roleResult.error.message);return;}
+ isAdmin=roleResult.data?.role==='admin';
  const result=await db.from('lifetime_licenses').select('granted_at').eq('user_id',activeUser.id).maybeSingle();
- if(result.error){showAuth('Não foi possível verificar a licença: '+result.error.message);return;}
- hasLifetimeLicense=!!result.data;
+ if(result.error&&!isAdmin){showAuth('Não foi possível verificar a licença: '+result.error.message);return;}
+ hasLifetimeLicense=isAdmin||!!result.data;
+ updateFactoryButton();
  showAuth('Conectado: '+activeUser.email);
- document.querySelector('#licenseStatus').textContent=hasLifetimeLicense?'Licença vitalícia ativa. Bancadas liberadas.':'Sem licença ativa. Valor: R$ 99,99, pagamento único. O checkout ainda não está disponível.';
+ document.querySelector('#licenseStatus').textContent=isAdmin?'Administrador autenticado. Acesso às bancadas liberado.':hasLifetimeLicense?'Licença vitalícia ativa. Bancadas liberadas.':'Sem licença ativa. Valor: R$ 99,99, pagamento único. O checkout ainda não está disponível.';
 }
 async function authenticate(event){
  event.preventDefault();if(!db)return showAuth('Serviço de login indisponível.');
@@ -54,7 +59,7 @@ async function logout(){if(db)await db.auth.signOut();activeUser=null;hasLifetim
 function voltarSeAberto(){document.querySelector('#lab').classList.add('hidden');document.querySelector('#factory').classList.add('hidden');document.querySelector('.hero').classList.remove('hidden')}
 if(db){db.auth.onAuthStateChange(()=>setTimeout(refreshAccess,0));refreshAccess()}else{showAuth('Não foi possível iniciar o login.')}
 let running=false,faulted=false,count=0,mode='Treinamento',timer=null;
-function entrar(){if(!hasLifetimeLicense){document.querySelector('#access').scrollIntoView({behavior:'smooth'});showAuth(activeUser?'Sua conta ainda não possui licença vitalícia ativa.':'Faça login e adquira a licença para abrir as bancadas.');return;}document.querySelector('.hero').classList.add('hidden');document.querySelector('#factory').classList.remove('hidden')}
+function entrar(){if(!hasLifetimeLicense){document.querySelector('#access').scrollIntoView({behavior:'smooth'});showAuth(activeUser?'Sua conta ainda não possui licença vitalícia ativa.':'Faça login e adquira a licença para abrir as bancadas.');return;}document.querySelector('.hero').classList.add('hidden');document.querySelector('#factory').classList.remove('hidden');document.querySelector('#factory').scrollIntoView({behavior:'smooth'})}
 function openLab(n){if(!hasLifetimeLicense){voltarSeAberto();document.querySelector('#access').scrollIntoView({behavior:'smooth'});return;}document.querySelector('#factory').classList.add('hidden');document.querySelector('#lab').classList.remove('hidden');document.querySelector('#labTitle').textContent=n;para();progress();window.scrollTo(0,0)}
 function voltar(){para();document.querySelector('#lab').classList.add('hidden');document.querySelector('#factory').classList.remove('hidden');window.scrollTo(0,0)}
 function setMode(m){mode=m;document.querySelector('#modeText').textContent='Modo: '+m+(m==='Treinamento'?' — siga as etapas e receba orientação.':m==='Desafio'?' — resolva sem indicação de ligação correta.':' — explore livremente a bancada.');progress()}
