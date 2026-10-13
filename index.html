@@ -2,8 +2,109 @@
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#07111c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <title>Fábrica Virtual 4.0</title><link rel="stylesheet" href="styles.css"></head>
-<body><header><b>FÁBRICA VIRTUAL 4.0</b><span>Laboratório Industrial Interativo</span></header>
-<main><section class="hero"><p class="tag">TREINAMENTO • AUTOMAÇÃO • INDÚSTRIA 4.0</p><h1>Aprenda dentro de uma fábrica virtual.</h1><p>Simuladores industriais interativos para computador, Android e iOS.</p><button onclick="entrar()">Entrar na fábrica</button></section>
+<body>
+<header class="site-header">
+  <a class="brand" href="#" aria-label="Fábrica Virtual 4.0 — início"><span class="brand-mark">FV<span>4</span></span><span class="brand-copy"><strong>FÁBRICA VIRTUAL <em>4.0</em></strong><small>LABORATÓRIO DE AUTOMAÇÃO</small></span></a>
+  <nav class="top-nav" aria-label="Navegação principal"><a href="#experiencia">A plataforma</a><a href="#tecnologias">Tecnologias</a><a class="nav-cta" href="#access">Acessar <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main>
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-ambient"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="pulse-dot"></span> LABORATÓRIO DIGITAL DE AUTOMAÇÃO INDUSTRIAL</p>
+      <h1 id="hero-title">O futuro da <span>Indústria 4.0</span> começa nas suas mãos.</h1>
+      <p class="hero-lead">Entre em uma fábrica virtual, explore comandos elétricos e entenda como CLPs, inversores, sensores e máquinas trabalham juntos — sem precisar montar uma bancada física.</p>
+      <div class="hero-actions"><a class="btn-primary" href="#access">Conhecer o acesso <span aria-hidden="true">↗</span></a><a class="btn-secondary" href="#experiencia">Explorar a plataforma <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-proof"><span><i aria-hidden="true">✓</i> Estude no seu ritmo</span><span><i aria-hidden="true">✓</i> PC, tablet ou celular</span><span><i aria-hidden="true">✓</i> Exercícios interativos</span></div>
+    </div>
+    <div class="hero-art" aria-label="Visualização ilustrativa de uma célula industrial automatizada">
+      <div class="scene-top"><div><span class="scene-live"></span> AMBIENTE INDUSTRIAL <b>ONLINE</b></div><span>ESTAÇÃO 01 / AUTOMAÇÃO</span></div>
+      <svg class="factory-visual" viewBox="0 0 780 540" role="img" aria-label="Ilustração animada de esteira transportadora, robô industrial, inversor e painel CLP">
+        <defs>
+          <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173650"/><stop offset="1" stop-color="#091625"/></linearGradient>
+          <linearGradient id="floor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18394b"/><stop offset="1" stop-color="#06121e"/></linearGradient>
+          <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#718eaa"/><stop offset=".48" stop-color="#344e67"/><stop offset="1" stop-color="#152b41"/></linearGradient>
+          <linearGradient id="machine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#244967"/><stop offset="1" stop-color="#0e2439"/></linearGradient>
+          <linearGradient id="robot" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc15a"/><stop offset="1" stop-color="#bd6719"/></linearGradient>
+          <linearGradient id="crate" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78d6e7"/><stop offset="1" stop-color="#247f9c"/></linearGradient>
+          <pattern id="gridlines" width="42" height="30" patternUnits="userSpaceOnUse"><path d="M42 0H0V30" fill="none" stroke="#3f8297" stroke-width=".6" opacity=".3"/></pattern>
+          <filter id="softglow"><feGaussianBlur stdDeviation="7"/></filter>
+        </defs>
+        <rect width="780" height="540" fill="url(#wall)"/>
+        <path d="M0 325 780 250V540H0Z" fill="url(#floor)"/>
+        <path d="M0 325 780 250V540H0Z" fill="url(#gridlines)" opacity=".55"/>
+        <path d="M0 70H780M0 170H780M115 0V300M395 0V290M665 0V268" stroke="#244b64" stroke-width="3" opacity=".55"/>
+        <path d="M40 102H740" stroke="#51d6c7" opacity=".16" stroke-width="3"/>
+        <path d="M40 130H740" stroke="#c8e8fa" opacity=".09" stroke-dasharray="7 10"/>
+        <g class="cable" fill="none" stroke="#3fd8c1" stroke-width="2" opacity=".85"><path d="M175 255Q215 200 322 255T510 246" stroke-dasharray="4 8"/><path d="M175 272Q260 230 395 280" stroke="#eaa853" opacity=".7"/></g>
+        <!-- control cabinet -->
+        <g transform="translate(57 170)">
+          <path d="M5 30 46 5 187 23 145 51Z" fill="#567990"/>
+          <path d="M5 30 145 51V275L5 256Z" fill="url(#machine)" stroke="#678ca2" stroke-width="3"/>
+          <path d="M145 51 187 23V249L145 275Z" fill="#0b253a" stroke="#53768b" stroke-width="2"/>
+          <rect x="25" y="62" width="100" height="82" rx="7" fill="#081a29" stroke="#5d95a3"/>
+          <rect x="36" y="73" width="77" height="40" rx="3" fill="#113947"/>
+          <text x="75" y="89" text-anchor="middle" fill="#6af5da" font-family="monospace" font-size="10">WEG / DRIVE</text>
+          <text x="75" y="104" text-anchor="middle" fill="#e1fcff" font-family="monospace" font-size="15">60.0 Hz</text>
+          <rect x="36" y="120" width="19" height="8" rx="2" fill="#21d4ac"/><rect x="64" y="120" width="19" height="8" rx="2" fill="#f9b54d"/><rect x="91" y="120" width="19" height="8" rx="2" fill="#2e6076"/>
+          <rect x="25" y="160" width="100" height="75" rx="4" fill="#102d44" stroke="#56758a"/>
+          <text x="75" y="177" text-anchor="middle" fill="#d9ebfa" font-size="11" font-family="monospace">CLP / I-O</text>
+          <g fill="#57e7c7"><circle cx="39" cy="195" r="4" class="blink"/><circle cx="61" cy="195" r="4"/><circle cx="83" cy="195" r="4"/><circle cx="105" cy="195" r="4"/></g>
+          <g fill="#648da4"><rect x="33" y="207" width="10" height="16" rx="2"/><rect x="55" y="207" width="10" height="16" rx="2"/><rect x="77" y="207" width="10" height="16" rx="2"/><rect x="99" y="207" width="10" height="16" rx="2"/></g>
+          <path d="M15 275H145" stroke="#70d5db" stroke-width="4" opacity=".6"/>
+        </g>
+        <!-- production conveyor -->
+        <g transform="translate(235 337)">
+          <path d="M12 60 355 13 480 66 130 120Z" fill="#0b1c29" stroke="#a0b6c4" stroke-width="5"/>
+          <path d="M22 60 353 19 462 65 130 109Z" fill="#203d4c" stroke="#477a8e" stroke-width="2"/>
+          <g stroke="#63b5bf" stroke-width="3" opacity=".48"><path d="M57 56 165 101"/><path d="M105 50 212 94"/><path d="M152 45 258 88"/><path d="M199 39 306 83"/><path d="M245 33 354 77"/><path d="M292 27 399 72"/></g>
+          <path d="M12 60 130 120 130 145 12 85Z" fill="#28485a" stroke="#668699" stroke-width="3"/>
+          <path d="M130 120 480 66V89L130 145Z" fill="#1a3447" stroke="#678b9b" stroke-width="3"/>
+          <path d="M67 105V190M428 96V181M170 140V188" stroke="#6b8695" stroke-width="13"/>
+          <path d="M43 191H457" stroke="#344d5b" stroke-width="10"/>
+          <g class="moving-crates">
+            <g transform="translate(135 -2)"><path d="M0 28 52 20 84 33 31 42Z" fill="#8aebef"/><path d="M0 28 31 42V91L0 76Z" fill="#3a97aa"/><path d="M31 42 84 33V81L31 91Z" fill="url(#crate)"/><path d="M52 20V69" stroke="#b5f6ee" stroke-width="3" opacity=".45"/></g>
+            <g transform="translate(269 -20) scale(.75)"><path d="M0 28 52 20 84 33 31 42Z" fill="#7fdadd"/><path d="M0 28 31 42V91L0 76Z" fill="#347e92"/><path d="M31 42 84 33V81L31 91Z" fill="#3da5b3"/></g>
+          </g>
+        </g>
+        <!-- robot arm -->
+        <g class="robot-system">
+          <path d="M507 340 645 322 690 350 548 373Z" fill="#345b6a" stroke="#84a5a9" stroke-width="3"/>
+          <path d="M545 363 625 351V294L545 307Z" fill="url(#metal)" stroke="#879dac" stroke-width="3"/>
+          <ellipse cx="591" cy="292" rx="60" ry="17" fill="#162c3c" stroke="#a2bac0" stroke-width="4"/>
+          <path d="M555 288 571 218 609 218 628 287Z" fill="url(#robot)" stroke="#ffd27d" stroke-width="4"/>
+          <circle cx="588" cy="218" r="31" fill="#d9892c" stroke="#fdd07d" stroke-width="7"/>
+          <g class="robot-upper">
+            <path d="M568 214 482 154Q471 145 482 128L497 117 602 180Z" fill="url(#robot)" stroke="#f8bb5b" stroke-width="5"/>
+            <circle cx="491" cy="136" r="25" fill="#354c5a" stroke="#ffc26c" stroke-width="8"/>
+            <path d="M488 130 421 181 436 202 510 153Z" fill="url(#metal)" stroke="#8ea9b9" stroke-width="4"/>
+            <circle cx="426" cy="192" r="16" fill="#d99036" stroke="#ffe0a2" stroke-width="5"/>
+            <path d="M425 202 422 245M414 243 403 260M431 243 444 257" stroke="#9ecac8" stroke-width="8" stroke-linecap="round" fill="none"/>
+          </g>
+        </g>
+        <circle cx="441" cy="245" r="33" fill="#42e8c9" opacity=".16" filter="url(#softglow)"/>
+        <path d="M470 305H729" stroke="#6cf5db" stroke-width="1" stroke-dasharray="5 7" opacity=".5"/>
+        <!-- overlay tags -->
+        <g transform="translate(268 52)"><rect width="204" height="59" rx="10" fill="#071a29" stroke="#396e80"/><circle cx="20" cy="19" r="5" fill="#53e8c2" class="blink"/><text x="34" y="23" fill="#c4f7e9" font-size="14" font-family="monospace">SISTEMA ATIVO</text><text x="20" y="45" fill="#87a9b9" font-size="11" font-family="monospace">CLP • INVERSOR • SENSORES</text></g>
+        <g transform="translate(550 83)"><rect width="180" height="63" rx="10" fill="#071a29" stroke="#396e80"/><text x="16" y="24" fill="#8facba" font-size="12" font-family="monospace">STATUS DA LINHA</text><circle cx="19" cy="45" r="5" fill="#53e8c2"/><text x="35" y="49" fill="#f2faf9" font-size="13" font-family="monospace">EM OPERAÇÃO</text></g>
+        <text x="42" y="509" font-family="monospace" fill="#6a9aaa" font-size="12" letter-spacing="2">DIGITAL FACTORY // TRAINING ENVIRONMENT</text>
+      </svg>
+      <div class="scene-bottom"><span><i></i> CLP ONLINE</span><span><i></i> MOTOR PRONTO</span><span><i></i> LINHA DIGITAL</span></div>
+      <div class="art-disclaimer">Ilustração conceitual da experiência industrial</div>
+    </div>
+  </div>
+  <div class="hero-bottom"><span>CONTROLE</span><span class="line"></span><span>AUTOMAÇÃO</span><span class="line"></span><span>APRENDIZADO PRÁTICO</span></div>
+</section>
+<section id="experiencia" class="experience">
+  <div class="section-intro"><span class="section-kicker">APRENDA NA PRÁTICA</span><h2>Mais do que assistir aulas. <span>Experimente a automação.</span></h2><p>Uma plataforma desenvolvida para aproximar estudantes, técnicos e profissionais da lógica do chão de fábrica.</p></div>
+  <div class="benefit-grid">
+    <article class="benefit"><span class="benefit-number">01 /</span><span class="benefit-icon">⌁</span><h3>Conecte e entenda</h3><p>Explore comandos, bornes, sinais e o caminho da informação entre dispositivos.</p></article>
+    <article class="benefit"><span class="benefit-number">02 /</span><span class="benefit-icon">⚙</span><h3>Comande a linha</h3><p>Teste partidas, paradas, velocidade do motor e a operação de uma esteira virtual.</p></article>
+    <article class="benefit"><span class="benefit-number">03 /</span><span class="benefit-icon">◎</span><h3>Diagnostique falhas</h3><p>Pratique intertravamentos, observe indicadores e desenvolva raciocínio técnico.</p></article>
+  </div>
+</section>
+<section id="tecnologias" class="tech-showcase"><div><span class="section-kicker">UMA JORNADA PELO CHÃO DE FÁBRICA</span><h2>Da botoeira ao processo automatizado.</h2><p>Explore conteúdos e estações de treinamento com inversores de frequência, CLPs, sensores, motores e esteiras transportadoras.</p><a href="#access" class="text-link">Ver acesso vitalício <span aria-hidden="true">↗</span></a></div><div class="tech-diagram" aria-label="Fluxo de automação ilustrativo"><span>SENSOR</span><b>→</b><span>CLP</span><b>→</b><span>INVERSOR</span><b>→</b><span>MOTOR</span><b>→</b><span>ESTEIRA</span><small>UM PROCESSO. VÁRIAS TECNOLOGIAS.</small></div></section>
 <section id="access" class="access"><h2>Acesso vitalício à Fábrica Virtual 4.0</h2><p><strong>R$ 99,99 — pagamento único, sem mensalidade.</strong> A compra será disponibilizada após a integração do pagamento seguro.</p><form id="authForm" onsubmit="authenticate(event)"><label>E-mail <input id="email" type="email" required autocomplete="email"></label><label>Senha <input id="password" type="password" required minlength="6" autocomplete="current-password"></label><div class="controls"><button type="submit">Entrar</button><button type="button" onclick="register()">Criar conta</button><button type="button" onclick="logout()">Sair</button></div></form><p id="authStatus" role="status" aria-live="polite">Faça login para consultar sua licença.</p><p id="licenseStatus" role="status"></p></section><section id="factory" class="hidden"><div class="sectionHead"><div><h2>Chão de fábrica</h2><p>Escolha uma estação e trabalhe como em uma bancada física.</p></div><span class="device">PC • ANDROID • iOS</span></div>
 <div class="flow">Sensor → CLP → Inversor → Motor → Esteira → Prensa</div><div class="grid">
 <article class="active"><h3>WEG CFW11</h3><p>Bornes, cabos, parâmetros, falhas e operação.</p><button onclick="openLab('CFW11')">Abrir CFW11</button></article>
