@@ -100,3 +100,6 @@ body{background:#07111c;color:var(--fv-text);font-family:Inter,"Segoe UI",Arial,
  #access{padding:55px 18px}#authForm{padding:16px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pulse-dot,.scene-live,.factory-visual .moving-crates,.factory-visual .robot-upper,.factory-visual .blink,.factory-visual .cable{animation:none!important}.btn-primary,.btn-secondary,.benefit{transition:none}}
+
+/* Oferta transparente enquanto o checkout nao esta integrado */
+.checkout-status{margin:22px 0 25px;padding:23px;border:1px solid #3b7175;border-radius:15px;background:linear-gradient(130deg,#163746,#0e2b3a);display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px 22px}.checkout-status>div{display:flex;flex-direction:column;gap:3px}.checkout-status small{font-size:10px;letter-spacing:1.5px;font-weight:900;color:#9ce7d9}.checkout-status strong{font-size:33px!important;line-height:1.4;color:#70edca}.checkout-status span{color:#c2d8de;font-size:12px}.checkout-status button{border:1px solid #426575;border-radius:10px;background:#254858;color:#b9d1d7;padding:14px 19px;font-weight:800;font-size:13px;cursor:not-allowed;opacity:1}.checkout-status p{grid-column:1/-1;color:#a8becb;margin:3px 0 0;font-size:12px;line-height:1.5}@media(max-width:640px){.checkout-status{grid-template-columns:1fr}.checkout-status button{width:100%;margin:5px 0}}
