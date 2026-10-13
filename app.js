@@ -53,13 +53,13 @@ async function loginWithEmail(){
  try{
   const {error}=await db.auth.signInWithOtp({
    email,
-   options:{shouldCreateUser:false,emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}
+   options:{shouldCreateUser:true,emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}
   });
   if(error){
-   if(error.status===429)return showAuth('Limite de envios atingido. Aguarde alguns minutos e tente apenas uma vez.');
+   if(error.status===429)return showAuth('O Supabase atingiu o limite temporário de envios de e-mails. Não repita a solicitação agora; aguarde o limite ser liberado ou configure SMTP próprio no Supabase.');
    return showAuth('Não foi possível enviar o link: '+error.message);
   }
-  showAuth('Link solicitado. Verifique o Gmail desse endereço e toque na mensagem mais recente de acesso da Fábrica Virtual. Não é preciso digitar senha.');
+  showAuth('Link solicitado para '+email+'. Abra a mensagem mais recente no seu e-mail e confirme para entrar. Se este for seu primeiro acesso, sua conta será criada automaticamente.');
  }catch(error){showAuth('Não foi possível conectar ao serviço de autenticação. Tente novamente mais tarde.');}
  finally{authRequestRunning=false;}
 }
