@@ -40,6 +40,30 @@ async function register(){
  finally{authRequestRunning=false}
 }
 let lastResendAt=0, lastSignupAt=0, authRequestRunning=false;
+let lastMagicLinkAt=0;
+async function loginWithEmail(){
+ if(!db)return showAuth('Serviço de acesso indisponível. Atualize a página.');
+ if(authRequestRunning)return showAuth('Aguarde a solicitação em andamento.');
+ const email=document.querySelector('#email').value.trim().toLowerCase();
+ if(!email)return showAuth('Informe seu e-mail antes de solicitar o link de acesso.');
+ if(Date.now()-lastMagicLinkAt<60000)return showAuth('Aguarde um minuto antes de solicitar outro link.');
+ authRequestRunning=true;
+ lastMagicLinkAt=Date.now();
+ showAuth('Solicitando seu link de acesso...');
+ try{
+  const {error}=await db.auth.signInWithOtp({
+   email,
+   options:{shouldCreateUser:false,emailRedirectTo:'https://fabrica-virtual-4-0.netlify.app/'}
+  });
+  if(error){
+   if(error.status===429)return showAuth('Limite de envios atingido. Aguarde alguns minutos e tente apenas uma vez.');
+   return showAuth('Não foi possível enviar o link: '+error.message);
+  }
+  showAuth('Link solicitado. Verifique o Gmail desse endereço e toque na mensagem mais recente de acesso da Fábrica Virtual. Não é preciso digitar senha.');
+ }catch(error){showAuth('Não foi possível conectar ao serviço de autenticação. Tente novamente mais tarde.');}
+ finally{authRequestRunning=false;}
+}
+
 async function resendConfirmation(){
  if(authRequestRunning)return showAuth('Aguarde a resposta da solicitação anterior.');
  if(!db)return showAuth('Serviço de cadastro indisponível.');
