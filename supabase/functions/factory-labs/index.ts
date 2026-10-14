@@ -1,5 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2.57.0';
 import cfw11 from './cfw11.ts';
+import classic from './classic.ts';
 import integrated from './integrated.ts';
 const db=createClient(Deno.env.get('SUPABASE_URL')!,Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,{auth:{persistSession:false,autoRefreshToken:false}});
 const headers={'Content-Type':'application/json','Access-Control-Allow-Origin':'https://fabrica-virtual-4-0.netlify.app','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info','Access-Control-Allow-Methods':'POST,OPTIONS','Cache-Control':'no-store','Vary':'Origin'};
@@ -24,7 +25,7 @@ Deno.serve(async(req)=>{
   const body=await req.json();
   if(body.action==='access')return answer({allowed,admin,email:user.email});
   if(!allowed)return answer({error:'Sua conta ainda não possui pagamento confirmado.'},403);
-  const html=body.lab==='cfw11'?cfw11:body.lab==='integrated'?integrated:null;
+  const html=body.lab==='classic'?classic:body.lab==='cfw11'?cfw11:body.lab==='integrated'?integrated:null;
   if(!html)return answer({error:'Bancada não encontrada.'},404);
   return answer({html,lab:body.lab});
  }catch{return answer({error:'Não foi possível abrir a bancada agora.'},500)}

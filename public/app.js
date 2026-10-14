@@ -1,7 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id);
 const db=window.supabase?.createClient('https://xilykohtdxtczrdnoujx.supabase.co','sb_publishable_b1fT8Gm9lOxcu3fglJ7V-A_OitqVSO7');
-const titles={cfw11:'WEG CFW11 · Bancada original',integrated:'S7‑1200 + CFW11 · Esteira integrada'};
+const titles={classic:'CFW11 · Bancada antiga',cfw11:'WEG CFW11 · Bancada original',integrated:'S7‑1200 + CFW11 · Esteira integrada'};
 let session=null,permission=null,selected=null,authMode='login',busy=false,requestNumber=0,lastEmailAt=0,activeLab=null;
 const message=text=>$('authStatus').textContent=text;
 async function api(body){
