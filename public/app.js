@@ -21,8 +21,12 @@ async function refresh(){
 async function openLab(lab){
  selected=lab;if(!session){showLogin();return;}
  const ticket=++requestNumber;const buttons=document.querySelectorAll('.open-lab');buttons.forEach(b=>b.disabled=true);$('accessStatus').textContent='Abrindo '+titles[lab]+'…';
- try{const result=await api({action:'lab',lab});if(ticket!==requestNumber)return;
-  activeLab=lab;let html=result.html;
+ try{const files={'node-cfw11':'bancadas/cfw11-3d.html','node-esteira':'bancadas/esteira-s7-cfw11.html'};
+  let html;
+  if(files[lab]){const access=await api({action:'access'});if(!access.admin&&!access.allowed)throw new Error('Acesso não autorizado.');const response=await fetch(files[lab]);if(!response.ok)throw new Error('Bancada indisponível.');html=await response.text();}
+  else{const result=await api({action:'lab',lab});html=result.html;}
+  if(ticket!==requestNumber)return;
+  activeLab=lab;
   if(lab==='integrated'){let cache={};try{cache=JSON.parse(localStorage.getItem('fv4:assembly:'+session.user.id)||'{}')}catch{}html=html.replace('const storeCache={}', 'const storeCache='+JSON.stringify(cache).replace(/</g,'\\u003c'));}
   $('labFrame').srcdoc=html;$('workspaceTitle').textContent=titles[lab];$('home').hidden=true;$('footer').hidden=true;$('workspace').hidden=false;document.body.classList.add('in-lab');$('authDialog').close();window.scrollTo(0,0);$('back').focus();
  }catch(e){$('accessStatus').textContent=e.message;if($('authDialog').open)message(e.message)}finally{buttons.forEach(b=>b.disabled=false)}
