@@ -1,0 +1,99 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 800 840] /Resources << /Font << /F1 7 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1502 >>
+stream
+BT /F1 17 Tf 45 795 Td (ESTEIRA IA - POTENCIA - REVISAO PRELIMINAR R04) Tj ET
+BT /F1 11 Tf 45 765 Td (220 V fase-fase | Metaltex IF10-202-1 \(modelo de referencia\) | Motor 2 CV) Tj ET
+45 480 125 215 re S
+220 480 140 215 re S
+415 480 150 215 re S
+610 480 145 215 re S
+BT /F1 13 Tf 57 670 Td (REDE 220 V) Tj ET
+BT /F1 12 Tf 235 670 Td (QF1 - PROTECAO) Tj ET
+BT /F1 13 Tf 430 670 Td (INV1 - IF10) Tj ET
+BT /F1 13 Tf 625 670 Td (M1 - MOTOR) Tj ET
+BT /F1 12 Tf 58 633 Td (L1) Tj ET
+90 625 m 220 625 l S
+360 625 m 415 625 l S
+BT /F1 12 Tf 427 633 Td (L1) Tj ET
+BT /F1 12 Tf 58 568 Td (L2) Tj ET
+90 560 m 220 560 l S
+360 560 m 415 560 l S
+BT /F1 12 Tf 427 568 Td (L2) Tj ET
+BT /F1 12 Tf 525 633 Td (U) Tj ET
+565 625 m 610 625 l S
+BT /F1 12 Tf 622 633 Td (U) Tj ET
+BT /F1 12 Tf 525 568 Td (V) Tj ET
+565 560 m 610 560 l S
+BT /F1 12 Tf 622 568 Td (V) Tj ET
+BT /F1 12 Tf 525 503 Td (W) Tj ET
+565 495 m 610 495 l S
+BT /F1 12 Tf 622 503 Td (W) Tj ET
+BT /F1 12 Tf 58 495 Td (PE) Tj ET
+BT /F1 12 Tf 625 495 Td (PE) Tj ET
+BT /F1 11 Tf 45 430 Td (PE: condutor de protecao dedicado; confirmar terminais de aterramento.) Tj ET
+BT /F1 11 Tf 45 390 Td (QF1: tipo, corrente e capacidade de interrupcao A DEFINIR por calculo.) Tj ET
+BT /F1 11 Tf 45 360 Td (INV1: conferir etiqueta, corrente de entrada/saida e manual antes de instalar.) Tj ET
+BT /F1 11 Tf 45 330 Td (M1: confirmar corrente de placa, tensao, conexao e protecao termica.) Tj ET
+BT /F1 14 Tf 45 290 Td (DOCUMENTO PRELIMINAR. NAO LIBERADO PARA MONTAGEM.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 800 840] /Resources << /Font << /F1 7 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1500 >>
+stream
+BT /F1 17 Tf 45 795 Td (ESTEIRA IA - COMANDO - REVISAO PRELIMINAR R04) Tj ET
+BT /F1 12 Tf 45 760 Td (CLP Siemens S7-1200 CPU 1214C DC/DC/Rly - comando 24 Vcc) Tj ET
+45 450 325 260 re S
+420 450 335 260 re S
+BT /F1 15 Tf 60 678 Td (PLC1 - S7-1200) Tj ET
+BT /F1 15 Tf 435 678 Td (INV1 - METALTEX IF10) Tj ET
+BT /F1 12 Tf 60 640 Td (CPU 1214C DC/DC/Rly) Tj ET
+BT /F1 12 Tf 60 605 Td (SM1223 DI16/DQ16) Tj ET
+BT /F1 12 Tf 60 570 Td (SM1231 AI4) Tj ET
+BT /F1 12 Tf 60 535 Td (SM1232 AQ2) Tj ET
+BT /F1 12 Tf 60 500 Td (Saidas fisicas: validar enderecos) Tj ET
+BT /F1 11 Tf 435 640 Td (Bornes da fotografia:) Tj ET
+BT /F1 11 Tf 435 608 Td (RC RA S2 S1 REV FWD) Tj ET
+BT /F1 11 Tf 435 576 Td (RS- RS+ AVI +10V GND) Tj ET
+BT /F1 11 Tf 435 544 Td (FWD: validar logica de acionamento) Tj ET
+BT /F1 11 Tf 435 512 Td (AVI/GND: validar sinal analogico) Tj ET
+BT /F1 11 Tf 435 480 Td (RS485: validar parametros) Tj ET
+BT /F1 13 Tf 45 395 Td (INTERFACES PROPOSTAS \(AINDA NAO INTERLIGADAS\):) Tj ET
+BT /F1 11 Tf 50 360 Td (24 Vcc para CLP e sensores; verificar carga e protecoes.) Tj ET
+BT /F1 11 Tf 50 328 Td (Partida/parada via entradas digitais e permissivos.) Tj ET
+BT /F1 11 Tf 50 296 Td (PLC -> inversor: conferir eletrica dos bornes antes de ligar.) Tj ET
+BT /F1 11 Tf 50 264 Td (AQ 0-10 V -> AVI/GND: validar compatibilidade.) Tj ET
+BT /F1 11 Tf 50 232 Td (Parada de emergencia requer circuito de seguranca independente.) Tj ET
+BT /F1 14 Tf 45 145 Td (DOCUMENTO PRELIMINAR. NAO LIBERADO PARA MONTAGEM.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000001800 00000 n 
+0000001926 00000 n 
+0000003477 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+3547
+%%EOF
