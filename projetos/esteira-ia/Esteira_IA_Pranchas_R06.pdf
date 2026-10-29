@@ -1,0 +1,146 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 840] /Resources << /Font << /F1 9 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1630 >>
+stream
+BT /F1 17 Tf 40 800 Td (ESTEIRA IA | FH ALVES ENGENHARIA) Tj ET
+40 788 m 800 788 l S
+BT /F1 15 Tf 40 762 Td (01 - POTENCIA / CIRCUITO DE FORCA) Tj ET
+BT /F1 12 Tf 45 720 Td (REDE 220 V FASE-FASE \(SEM NEUTRO\)) Tj ET
+BT /F1 10 Tf 45 680 Td (L1) Tj ET
+BT /F1 10 Tf 100 680 Td (L2) Tj ET
+BT /F1 10 Tf 155 680 Td (PE) Tj ET
+55 660 m 55 615 l S
+45 580 20 35 re S
+55 580 m 55 540 l S
+45 515 20 25 re S
+55 515 m 55 445 l S
+110 660 m 110 615 l S
+100 580 20 35 re S
+110 580 m 110 540 l S
+100 515 20 25 re S
+110 515 m 110 445 l S
+165 660 m 165 445 l S
+BT /F1 11 Tf 230 600 Td (-QF1 | PROTECAO BIPOLAR: dimensionar) Tj ET
+BT /F1 11 Tf 230 530 Td (-QS1 | SECCIONAMENTO BIPOLAR: dimensionar) Tj ET
+35 315 300 130 re S
+BT /F1 13 Tf 50 415 Td (-INV1 | METALTEX IF10) Tj ET
+BT /F1 10 Tf 50 390 Td (L1) Tj ET
+BT /F1 10 Tf 105 390 Td (L2) Tj ET
+BT /F1 10 Tf 160 390 Td (PE) Tj ET
+BT /F1 10 Tf 50 335 Td (U) Tj ET
+BT /F1 10 Tf 105 335 Td (V) Tj ET
+BT /F1 10 Tf 160 335 Td (W) Tj ET
+55 315 m 55 260 l S
+110 315 m 110 260 l S
+165 315 m 165 260 l S
+35 200 300 60 re S
+BT /F1 12 Tf 50 230 Td (-M1 | MOTOR TRIFASICO 2 CV / 220 V) Tj ET
+BT /F1 13 Tf 380 425 Td (VALIDACOES NECESSARIAS) Tj ET
+BT /F1 11 Tf 380 390 Td (Confirmar modelo exato do inversor e placa do motor.) Tj ET
+BT /F1 11 Tf 380 365 Td (Calcular protecao, bitola e aterramento.) Tj ET
+BT /F1 11 Tf 380 340 Td (Conferir U/V/W e PE conforme manual.) Tj ET
+BT /F1 11 Tf 380 315 Td (Diagrama preliminar; nao energizar.) Tj ET
+40 90 m 800 90 l S
+BT /F1 10 Tf 40 70 Td (REVISAO R06 | 29/10/2026 | DOCUMENTO PRELIMINAR - NAO LIBERADO PARA MONTAGEM) Tj ET
+BT /F1 10 Tf 700 50 Td (FOLHA 1/3) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 840] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1492 >>
+stream
+BT /F1 17 Tf 40 800 Td (ESTEIRA IA | FH ALVES ENGENHARIA) Tj ET
+40 788 m 800 788 l S
+BT /F1 15 Tf 40 762 Td (02 - COMANDO / INTERFACE PLC E INVERSOR) Tj ET
+45 350 300 290 re S
+480 350 300 290 re S
+BT /F1 14 Tf 65 610 Td (-PLC1 SIEMENS S7-1200) Tj ET
+BT /F1 14 Tf 500 610 Td (-INV1 METALTEX IF10) Tj ET
+BT /F1 10 Tf 65 570 Td (CPU 1214C DC/DC/Rly) Tj ET
+335 570 m 365 570 l S
+BT /F1 10 Tf 65 525 Td (Alimentacao: L+ / M, 24 Vcc) Tj ET
+335 525 m 365 525 l S
+BT /F1 10 Tf 65 480 Td (Saida digital: Qx.x A DEFINIR) Tj ET
+335 480 m 365 480 l S
+BT /F1 10 Tf 65 435 Td (Saida analogica SM1232: AQx) Tj ET
+335 435 m 365 435 l S
+BT /F1 10 Tf 65 390 Td (Entrada de status: Ix.x) Tj ET
+335 390 m 365 390 l S
+BT /F1 10 Tf 500 570 Td (FWD: comando, validar funcao) Tj ET
+460 570 m 485 570 l S
+BT /F1 10 Tf 500 525 Td (RC/RA: confirmar eletrica) Tj ET
+460 525 m 485 525 l S
+BT /F1 10 Tf 500 480 Td (AVI: faixa de entrada a validar) Tj ET
+460 480 m 485 480 l S
+BT /F1 10 Tf 500 435 Td (GND: referencia a validar) Tj ET
+460 435 m 485 435 l S
+BT /F1 10 Tf 500 390 Td (RS+/RS-: opcao Modbus) Tj ET
+460 390 m 485 390 l S
+BT /F1 11 Tf 65 285 Td (INTERLIGACOES DE COMANDO NAO DEFINIDAS: verificar manual e projeto TIA V18.) Tj ET
+BT /F1 11 Tf 65 245 Td (Os segmentos de terminal nao sao fios instalaveis. Confirmar I/O e niveis eletricos.) Tj ET
+40 90 m 800 90 l S
+BT /F1 10 Tf 40 70 Td (REVISAO R06 | 29/10/2026 | DOCUMENTO PRELIMINAR - NAO LIBERADO PARA MONTAGEM) Tj ET
+BT /F1 10 Tf 700 50 Td (FOLHA 2/3) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 840] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 1310 >>
+stream
+BT /F1 17 Tf 40 800 Td (ESTEIRA IA | FH ALVES ENGENHARIA) Tj ET
+40 788 m 800 788 l S
+BT /F1 15 Tf 40 762 Td (03 - SEGURANCA E BORNES) Tj ET
+45 435 350 240 re S
+440 435 340 240 re S
+BT /F1 14 Tf 60 645 Td (SEGURANCA FUNCIONAL) Tj ET
+BT /F1 11 Tf 60 605 Td (Parada de emergencia independente do PLC.) Tj ET
+BT /F1 11 Tf 60 575 Td (Avaliar riscos conforme NR-12.) Tj ET
+BT /F1 11 Tf 60 545 Td (Definir funcao de parada segura do drive.) Tj ET
+BT /F1 11 Tf 60 515 Td (Validar arquitetura por responsavel tecnico.) Tj ET
+BT /F1 14 Tf 455 645 Td (-X1 | REGUA DE BORNES) Tj ET
+BT /F1 11 Tf 455 605 Td (X1:1 - L1) Tj ET
+BT /F1 11 Tf 455 570 Td (X1:2 - L2) Tj ET
+BT /F1 11 Tf 455 535 Td (X1:3 - PE) Tj ET
+BT /F1 11 Tf 455 500 Td (X1:4/5/6 - U/V/W para motor) Tj ET
+BT /F1 14 Tf 45 390 Td (PENDENCIAS PARA PROJETO EXECUTIVO) Tj ET
+BT /F1 11 Tf 50 355 Td (Placas do inversor e motor; parametros do IF10; mapeamento de I/O do PLC.) Tj ET
+BT /F1 11 Tf 50 323 Td (Dimensionamento de cabos, disjuntores e protecoes; detalhes de aterramento.) Tj ET
+BT /F1 11 Tf 50 291 Td (Projeto de seguranca, lista de bornes, numeracao de fios e validacao de campo.) Tj ET
+40 90 m 800 90 l S
+BT /F1 10 Tf 40 70 Td (REVISAO R06 | 29/10/2026 | DOCUMENTO PRELIMINAR - NAO LIBERADO PARA MONTAGEM) Tj ET
+BT /F1 10 Tf 700 50 Td (FOLHA 3/3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000127 00000 n 
+0000000253 00000 n 
+0000001934 00000 n 
+0000002060 00000 n 
+0000003603 00000 n 
+0000003729 00000 n 
+0000005090 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+5160
+%%EOF
